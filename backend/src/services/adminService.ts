@@ -78,26 +78,36 @@ export const registerAdmin = async (
 	}
 };
 
-// export const loginAdmin = async (data: LoginData): Promise<AuthResponse> => {
-// 	try {
-// 		const admin = await prisma.admin.findFirst({
-// 			where: {
-// 				OR: [
-// 					{ username: data.username },
-// 					{ email: data.email }
-// 				]
-// 			}
-// 		})
-//         if(!admin || !await bcrypt.compare(data,password, admin.password)) {
-//             return {
-//                 success: false,
-//                 message: 'Invalid credentails'
-//             }
-//         }
-//         const token = generateToken(admin?.id, admin?.username);
+export const loginAdmin = async (data: LoginData): Promise<AuthResponse> => {
+	try {
+		const admin = await prisma.admin.findFirst({
+			where: {
+				OR: [{ username: data.username }, { email: data.email }],
+			},
+		});
+		if (!admin || !await bcrypt.compare(data.password, admin.password)) {
+			return {
+				success: false,
+				message: "Invalid credentails",
+			};
+		}
+		const token = generateToken(admin?.id, admin?.username);
 
-//         return
-// 	} catch (error) {
-
-// 	}
-// }
+		return {
+			success: true,
+			message: "Login Successful",
+			admin: {
+				id: admin.id,
+				username: admin.username,
+				email: admin.username,
+			},
+			token,
+		};
+	} catch (error) {
+		console.error("Login error", error);
+		return {
+			success: false,
+			message: "Login failed",
+		};
+	}
+};
