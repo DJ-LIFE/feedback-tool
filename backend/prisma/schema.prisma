@@ -36,21 +36,7 @@ model Admin {
   // Timestamps
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  
-  sessions  Session[]
-  
+    
   @@map("admins")
 }
 
-model Session {
-  id        String   @id @default(cuid())
-  token     String   @unique
-  adminId   String
-  expiresAt DateTime
-  createdAt DateTime @default(now())
-  
-  // Relations
-  admin     Admin    @relation(fields: [adminId], references: [id], onDelete: Cascade)
-  
-  @@map("sessions")
-}

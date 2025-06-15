@@ -1,0 +1,42 @@
+export const productData = [
+	{
+		id: "prod_1",
+		name: "Wireless Headphones",
+		description: "Premium noise-cancelling wireless headphones",
+		category: "Electronics",
+		price: 299.99,
+		image: "https://via.placeholder.com/300x200?text=Headphones",
+	},
+	{
+		id: "prod_2",
+		name: "Smart Watch",
+		description: "Fitness tracking smartwatch with GPS",
+		category: "Wearables",
+		price: 399.99,
+		image: "https://via.placeholder.com/300x200?text=Smart+Watch",
+	},
+	{
+		id: "prod_3",
+		name: "Laptop Stand",
+		description: "Ergonomic adjustable laptop stand",
+		category: "Accessories",
+		price: 49.99,
+		image: "https://via.placeholder.com/300x200?text=Laptop+Stand",
+	},
+	{
+		id: "prod_4",
+		name: "Bluetooth Speaker",
+		description: "Portable waterproof Bluetooth speaker",
+		category: "Audio",
+		price: 79.99,
+		image: "https://via.placeholder.com/300x200?text=Speaker",
+	},
+	{
+		id: "prod_5",
+		name: "Wireless Mouse",
+		description: "Ergonomic wireless optical mouse",
+		category: "Accessories",
+		price: 29.99,
+		image: "https://via.placeholder.com/300x200?text=Mouse",
+	},
+];
