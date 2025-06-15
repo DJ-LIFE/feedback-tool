@@ -14,29 +14,15 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Product {
-  id          String     @id @default(cuid())
-  name        String
-  description String?
-  createdAt   DateTime   @default(now())
-  updatedAt   DateTime   @updatedAt
-  feedbacks   Feedback[]
-
-  @@map("products")
-}
-
 model Feedback {
   id        String   @id @default(cuid())
   name      String?
   email     String?
   feedback  String
-  rating    String
+  rating    Int
+  productId String
   createdAt DateTime @default(now())
   updatedAt DateTime
-
-  productId String
-
-  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
 
   @@map("feedbacks")
 }
