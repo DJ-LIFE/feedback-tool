@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 
 import adminRoute from "./routes/adminRoute";
+import feedbackRoute from "./routes/feedbackRoutes";
 dotenv.config();
 const app = express();
 app.use(cors());
@@ -15,6 +16,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/admin", adminRoute);
+app.use("/api/feedback", feedbackRoute);
 
 app.listen(PORT, () => {
 	console.log(`🚀 Server running on port ${PORT}`);
