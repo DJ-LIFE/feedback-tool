@@ -12,8 +12,8 @@ const router = Router();
 router.use(authMiddleware);
 
 router.get("/dashboard", getDashboard);
-router.get("/dashboard/feedbacks", getFeedbacks);
-router.get("/dashboard/feedbacks/popularity", getStats);
-router.get("/dashboard/feedbacks/ratings", getPopularFeedback);
+router.get("/feedbacks", getFeedbacks);
+router.get("/stats", getStats);
+router.get("/popular", getPopularFeedback);
 
 export default router;

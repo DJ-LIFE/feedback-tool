@@ -6,7 +6,6 @@ import {
 } from "../services/feedbackService";
 import { AuthenticatedRequest } from "../middleware/authMiddleware";
 import { Request, Response } from "express";
-import { get } from "http";
 
 export const getFeedbacks = async (
 	req: AuthenticatedRequest,

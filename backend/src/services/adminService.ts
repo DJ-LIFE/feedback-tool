@@ -26,9 +26,9 @@ export interface AuthResponse {
 	token?: string;
 }
 
-export const generateToken = (adminId: string, username: string): string => {
+export const generateToken = (adminId: string, email: string): string => {
 	return jwt.sign(
-		{ adminId, username, type: "admin" },
+		{ adminId, email, type: "admin" },
 		process.env.JWT_SECRET!,
 		{ expiresIn: "24h" }
 	);
@@ -66,7 +66,11 @@ export const registerAdmin = async (
 		return {
 			success: true,
 			message: "Admin registered successfully",
-			admin,
+			admin: {
+				id: admin.id,
+				username: admin.username,
+				email: admin.email,
+			},
 			token,
 		};
 	} catch (error) {

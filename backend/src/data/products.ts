@@ -1,6 +1,6 @@
 export const productData = [
 	{
-		id: "prod_1",
+		id: "550e8400-e29b-41d4-a716-446655440001",
 		name: "Wireless Headphones",
 		description: "Premium noise-cancelling wireless headphones",
 		category: "Electronics",
@@ -8,7 +8,7 @@ export const productData = [
 		image: "https://via.placeholder.com/300x200?text=Headphones",
 	},
 	{
-		id: "prod_2",
+		id: "550e8400-e29b-41d4-a716-446655440002",
 		name: "Smart Watch",
 		description: "Fitness tracking smartwatch with GPS",
 		category: "Wearables",
@@ -16,7 +16,7 @@ export const productData = [
 		image: "https://via.placeholder.com/300x200?text=Smart+Watch",
 	},
 	{
-		id: "prod_3",
+		id: "550e8400-e29b-41d4-a716-446655440003",
 		name: "Laptop Stand",
 		description: "Ergonomic adjustable laptop stand",
 		category: "Accessories",
@@ -24,7 +24,7 @@ export const productData = [
 		image: "https://via.placeholder.com/300x200?text=Laptop+Stand",
 	},
 	{
-		id: "prod_4",
+		id: "550e8400-e29b-41d4-a716-446655440004",
 		name: "Bluetooth Speaker",
 		description: "Portable waterproof Bluetooth speaker",
 		category: "Audio",
@@ -32,7 +32,7 @@ export const productData = [
 		image: "https://via.placeholder.com/300x200?text=Speaker",
 	},
 	{
-		id: "prod_5",
+		id: "550e8400-e29b-41d4-a716-446655440005",
 		name: "Wireless Mouse",
 		description: "Ergonomic wireless optical mouse",
 		category: "Accessories",
