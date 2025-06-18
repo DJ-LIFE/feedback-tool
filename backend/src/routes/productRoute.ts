@@ -11,6 +11,6 @@ const router = express.Router();
 router.get("/", getProducts);
 router.get("/:id", getProduct);
 router.get("/category/:category", getProductsByCategory);
-router.post("/feedback", getProductsByFeedbackCount);
+router.get("/feedback", getProductsByFeedbackCount);
 
 export default router;

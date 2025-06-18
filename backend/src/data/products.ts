@@ -5,7 +5,7 @@ export const productData = [
 		description: "Premium noise-cancelling wireless headphones",
 		category: "Electronics",
 		price: 299.99,
-		image: "https://via.placeholder.com/300x200?text=Headphones",
+		image: "https://images.pexels.com/photos/610945/pexels-photo-610945.jpeg",
 	},
 	{
 		id: "550e8400-e29b-41d4-a716-446655440002",
@@ -13,7 +13,7 @@ export const productData = [
 		description: "Fitness tracking smartwatch with GPS",
 		category: "Wearables",
 		price: 399.99,
-		image: "https://via.placeholder.com/300x200?text=Smart+Watch",
+		image: "https://images.pexels.com/photos/2779018/pexels-photo-2779018.jpeg",
 	},
 	{
 		id: "550e8400-e29b-41d4-a716-446655440003",
@@ -21,7 +21,7 @@ export const productData = [
 		description: "Ergonomic adjustable laptop stand",
 		category: "Accessories",
 		price: 49.99,
-		image: "https://via.placeholder.com/300x200?text=Laptop+Stand",
+		image: "https://images.pexels.com/photos/26891720/pexels-photo-26891720.jpeg",
 	},
 	{
 		id: "550e8400-e29b-41d4-a716-446655440004",
@@ -29,7 +29,7 @@ export const productData = [
 		description: "Portable waterproof Bluetooth speaker",
 		category: "Audio",
 		price: 79.99,
-		image: "https://via.placeholder.com/300x200?text=Speaker",
+		image: "https://images.pexels.com/photos/14309806/pexels-photo-14309806.jpeg",
 	},
 	{
 		id: "550e8400-e29b-41d4-a716-446655440005",
@@ -37,6 +37,6 @@ export const productData = [
 		description: "Ergonomic wireless optical mouse",
 		category: "Accessories",
 		price: 29.99,
-		image: "https://via.placeholder.com/300x200?text=Mouse",
+		image: "https://images.pexels.com/photos/30758127/pexels-photo-30758127.jpeg",
 	},
 ];
