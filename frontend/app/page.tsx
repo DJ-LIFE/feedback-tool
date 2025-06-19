@@ -36,7 +36,7 @@ export default function Home() {
 								</a>
 								<span className="text-white">|</span>
 								<a
-									href="/admin/signup"
+									href="/admin/register"
 									className="text-xl text-white font-semibold"
 								>
 									Signup
