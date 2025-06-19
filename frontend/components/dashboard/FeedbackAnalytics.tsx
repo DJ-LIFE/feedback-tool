@@ -15,7 +15,7 @@ import {
 	Title,
 } from "chart.js";
 
-import { Bar, Line, Pie } from "react-chartjs-2";
+import { Line, Pie } from "react-chartjs-2";
 
 ChartJS.register(
 	ArcElement,
@@ -58,6 +58,7 @@ const FeedbackAnalytics = () => {
 		fetchFeedbackData();
 		// debugger
 	}, []);
+
 	console.log("Feedback Data:", feedbackData);
 	if (loading) {
 		return <Loading />;
@@ -102,73 +103,75 @@ const FeedbackAnalytics = () => {
 		],
 	};
 	const timeline = feedbackData?.data?.stats?.timelineData || [];
-  const ratingTimeLineData = {
-    labels: Object.keys(timeline).map((date) => {
-      const data = new Date(date);
-      return data.toLocaleDateString("en-IN", {
-        timeZone: "Asia/Kolkata",
-        month: "short",
-        day: "numeric",
-        year: "numeric",
-      });
-    }) || [],
-    datasets: [
-      {
-        label: "Feedback Count Over Time",
-        data: Object.values(timeline).map((item) => item.count) || [],
-        backgroundColor: "rgba(75, 192, 192, 0.6)",
-        borderColor: "rgb(75, 192, 192)",
-        borderWidth: 1,
-      },
-      {
-        label: "Average Rating Over Time",
-        data: Object.values(timeline).map((item) => item.avgRating) || [],
-        backgroundColor: "rgba(255, 99, 132, 0.6)",
-        borderColor: "rgb(255, 99, 132)",
-        borderWidth: 1,
-      },
-    ],
-  };
+	const ratingTimeLineData = {
+		labels:
+			Object.keys(timeline).map((date) => {
+				const data = new Date(date);
+				return data.toLocaleDateString("en-IN", {
+					timeZone: "Asia/Kolkata",
+					month: "short",
+					day: "numeric",
+					year: "numeric",
+				});
+			}) || [],
+		datasets: [
+			{
+				label: "Feedback Count Over Time",
+				data: Object.values(timeline).map((item) => item.count) || [],
+				backgroundColor: "rgba(75, 192, 192, 0.6)",
+				borderColor: "rgb(75, 192, 192)",
+				borderWidth: 1,
+			},
+			{
+				label: "Average Rating Over Time",
+				data:
+					Object.values(timeline).map((item) => item.avgRating) || [],
+				backgroundColor: "rgba(255, 99, 132, 0.6)",
+				borderColor: "rgb(255, 99, 132)",
+				borderWidth: 1,
+			},
+		],
+	};
 
-  const timelineOptions = {
-	responsive: true,
-	interaction: {
-	  mode: 'index' as const,
-	  intersect: false,
-	},
-	stacked: false,
-	plugins: {
-	  title: {
-		display: true,
-		text: 'Feedback Trends Over Time',
-	  },
-	},
-	scales: {
-	  y: {
-		type: 'linear' as const,
-		display: true,
-		position: 'left' as const,
-		title: {
-		  display: true,
-		  text: 'Feedback Count'
-		}
-	  },
-	  y1: {
-		type: 'linear' as const,
-		display: true,
-		position: 'right' as const,
-		grid: {
-		  drawOnChartArea: false,
+	const timelineOptions = {
+		responsive: true,
+		interaction: {
+			mode: "index" as const,
+			intersect: false,
 		},
-		min: 0,
-		max: 5,
-		title: {
-		  display: true,
-		  text: 'Avg Rating'
-		}
-	  },
-	},
-  };
+		stacked: false,
+		plugins: {
+			title: {
+				display: true,
+				text: "Feedback Trends Over Time",
+			},
+		},
+		scales: {
+			y: {
+				type: "linear" as const,
+				display: true,
+				position: "left" as const,
+				title: {
+					display: true,
+					text: "Feedback Count",
+				},
+			},
+			y1: {
+				type: "linear" as const,
+				display: true,
+				position: "right" as const,
+				grid: {
+					drawOnChartArea: false,
+				},
+				min: 0,
+				max: 5,
+				title: {
+					display: true,
+					text: "Avg Rating",
+				},
+			},
+		},
+	};
 
 	// console.log(feedbackData?.data?.stats?.ratingDistribution, "Rating Distribution Keys");
 	return (
@@ -196,24 +199,24 @@ const FeedbackAnalytics = () => {
 				</div>
 			</div>
 			<div className="bg-yellow-50 p-4 rounded-lg grid-cols-1 md:grid-cols-2 gap-4 shadow">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="bg-white p-4 rounded-lg shadow">
-            <h2 className="text-lg font-semibold mb-2">
-              Feedback Rating Distribution
-            </h2>
-            {/* <div>{ratingData['5'] || 0}</div> */}
-            <Pie data={ratingData} options={{ responsive: true }} />
-          </div>
-          <div className="bg-white p-4 rounded-lg shadow">
-            <h2 className="text-lg font-semibold mb-2">
-              Feedback Over Time
-            </h2>
-            <Line
-              data={ratingTimeLineData}
-              options={{ ...timelineOptions, responsive: true }}
-            />
-          </div>
-        </div>
+				<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+					<div className="bg-white p-4 rounded-lg shadow">
+						<h2 className="text-lg font-semibold mb-2">
+							Feedback Rating Distribution
+						</h2>
+						{/* <div>{ratingData['5'] || 0}</div> */}
+						<Pie data={ratingData} options={{ responsive: true }} />
+					</div>
+					<div className="bg-white p-4 rounded-lg shadow">
+						<h2 className="text-lg font-semibold mb-2">
+							Feedback Over Time
+						</h2>
+						<Line
+							data={ratingTimeLineData}
+							options={{ ...timelineOptions, responsive: true }}
+						/>
+					</div>
+				</div>
 			</div>
 		</>
 	);

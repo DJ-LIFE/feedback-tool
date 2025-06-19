@@ -46,7 +46,8 @@ const DashboardOverview = () => {
 		);
 	}
 
-	const { stats, recentFeedbacks, popularFeedbacks } = dashboardData?.data;
+	const { stats, recentFeedbacks, popularFeedbacks } =
+		dashboardData?.data || {};
 	if (!stats) {
 		return (
 			<div className="text-center py-8">
@@ -136,7 +137,7 @@ const DashboardOverview = () => {
 					<h3 className="text-xl font-semibold mb-4">
 						Recent Feedback
 					</h3>
-					{recentFeedbacks.length === 0 ? (
+					{recentFeedbacks?.length === 0 ? (
 						<p className="text-gray-500">No feedback available</p>
 					) : (
 						<div className="overflow-x-auto">
@@ -171,7 +172,7 @@ const DashboardOverview = () => {
 								</thead>
 								<tbody className="bg-white divide-y divide-gray-200">
 									{recentFeedbacks
-										.slice(0, 5)
+										?.slice(0, 5)
 										.map((feedback: any) => (
 											<tr key={feedback.id}>
 												<td className="px-6 py-4 whitespace-nowrap">
@@ -227,7 +228,7 @@ const DashboardOverview = () => {
 						</div>
 					)}
 				</div>
-				{popularFeedbacks.length > 0 && (
+				{popularFeedbacks && popularFeedbacks.length > 0 && (
 					<div>
 						<h3 className="text-xl font-semibold mb-4">
 							Popular Feedback
