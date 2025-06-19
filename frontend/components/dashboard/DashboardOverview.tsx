@@ -1,5 +1,5 @@
 import { dashBoardAPI } from "@/lib/api";
-import { DashboardResponse } from "@/types";
+import { DashboardResponse, FeedbackItem } from "@/types";
 import React, { useEffect, useState } from "react";
 
 const DashboardOverview = () => {
@@ -173,7 +173,7 @@ const DashboardOverview = () => {
 								<tbody className="bg-white divide-y divide-gray-200">
 									{recentFeedbacks
 										?.slice(0, 5)
-										.map((feedback: any) => (
+										.map((feedback: FeedbackItem) => (
 											<tr key={feedback.id}>
 												<td className="px-6 py-4 whitespace-nowrap">
 													<div className="text-sm font-medium text-gray-900">
@@ -266,7 +266,7 @@ const DashboardOverview = () => {
 								<tbody className="bg-white divide-y divide-gray-200">
 									{popularFeedbacks
 										.slice(0, 3)
-										.map((feedback: any) => (
+										.map((feedback: FeedbackItem) => (
 											<tr key={feedback.id}>
 												<td className="px-6 py-4 whitespace-nowrap">
 													<div className="text-sm font-medium text-gray-900">

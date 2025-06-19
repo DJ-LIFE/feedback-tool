@@ -1,6 +1,7 @@
 "use client";
 import Products from "@/components/Products";
 import { useAuthStore } from "@/store/store";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
@@ -18,11 +19,11 @@ export default function Home() {
 		<>
 			<header className="bg-black shadow">
 				<div className="container mx-auto py-4 flex justify-between items-center">
-					<a href="/">
+					<Link href="/">
 						<h1 className="text-2xl text-white font-bold">
 							Feedback App
 						</h1>
-					</a>
+					</Link>
 
 					<div className="flex space-x-4">
 						{!isAuthenticated ? (

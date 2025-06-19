@@ -95,6 +95,11 @@ const Login = () => {
 							placeholder="Enter your email or Username"
 							required
 						/>
+						{errors.username && (
+							<p className="text-red-500 text-sm mt-1">
+								{errors.username.message}
+							</p>
+						)}
 					</div>
 					<div className="mb-4">
 						<label
@@ -111,6 +116,11 @@ const Login = () => {
 							placeholder="Enter your password"
 							required
 						/>
+						{errors.password && (
+							<p className="text-red-500 text-sm mt-1">
+								{errors.password.message}
+							</p>
+						)}
 					</div>
 					<button
 						className="bg-blue-500 text-white font-semibold py-2 px-4 rounded-full w-full cursor-pointer hover:bg-blue-600"
@@ -119,7 +129,7 @@ const Login = () => {
 						Login
 					</button>
 					<p className="text-sm text-neutral-800 mt-4 text-center">
-						Don't have an account?{" "}
+						don&apos;t have an account?{" "}
 						<Link
 							href="/admin/register"
 							className="text-blue-500 hover:underline"

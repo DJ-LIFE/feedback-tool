@@ -1,10 +1,12 @@
+import { InputHTMLAttributes } from "react";
+
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+    type?: string;
+}
 const Input = ({
 	type = "text",
 	...props
-}: {
-	type?: string;
-	[key: string]: any;
-}) => {
+}: InputProps) => {
 	return (
 		<input
 			type={type}

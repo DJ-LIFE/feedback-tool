@@ -1,6 +1,7 @@
 "use client";
 import { useAuthStore } from "@/store/store";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 
@@ -16,7 +17,7 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
 		<div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50">
 			<header className="bg-black shadow">
 				<div className="container mx-auto py-2 flex justify-between items-center">
-					<a href="/">
+					<Link href="/">
 						<span className="flex items-center space-x-2">
 							<Image
 								src="/logo.svg"
@@ -28,7 +29,7 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
 								Feedback
 							</h1>
 						</span>
-					</a>
+					</Link>
 
 					<div className="flex space-x-4">
 						{!isAuthenticated ? (

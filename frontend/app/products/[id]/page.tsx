@@ -36,7 +36,7 @@ const ProductDetail = () => {
 		};
 
 		fetchProduct();
-	}, [productId]);
+	}, [productId, setProductId]);
 
 	if (loading) {
 		return <div>Loading...</div>;

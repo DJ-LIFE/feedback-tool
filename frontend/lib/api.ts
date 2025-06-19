@@ -32,7 +32,7 @@ export const productAPI = {
 		const res = await api.get(`/products/category/${category}`);
 		return res.data;
 	},
-	getProductsByFeedbackCount: async (feedback: any[]) => {
+	getProductsByFeedbackCount: async (feedback: Array<string>) => {
 		const res = await api.post("/products/feedback", { feedback });
 		return res.data;
 	},

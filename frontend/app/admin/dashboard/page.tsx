@@ -15,7 +15,7 @@ const AdminDashBoard = () => {
 		if (!isAuthenticated) {
 			router.push("/admin/login");
 		}
-	}, [initializeAuth]);
+	}, [initializeAuth, isAuthenticated, router]);
 	return (
 		<>
 			<h1 className="font-bold text-3xl text-center text-neutral-800 mt-10">
