@@ -5,7 +5,7 @@
 	"main": "dist/src/index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"build": "tsc && npm run copy-files",
+		"build": "npm install && tsc && npm run copy-files",
 		"copy-files": "copyfiles \"prisma/**/*\" \".env\" \"package.json\" dist",
 		"postinstall": "prisma generate",
 		"dev": "nodemon src/index.ts",
