@@ -75,7 +75,7 @@ const Login = () => {
 	console.log(isLoading, "isLoading state in Login component");
 	return (
 		<div className="flex justify-center items-center">
-			<div className="bg-white p-8 pb-34 rounded-xl shadow-md w-80 md:w-96 mt-40 mx-4">
+			<div className="bg-white p-8 pb-34 rounded-xl shadow-md w-80 md:w-96 mt-40 mx-4 transition-all duration-300 ease-in-out">
 				<h2 className="text-2xl font-bold mb-6 text-neutral-800">
 					Admin Login
 				</h2>

@@ -30,7 +30,8 @@ const FeedbackList = () => {
 		fetchFeedbackData();
 		// debugger
 	}, []);
-	console.log("Feedback Data:", feedbackData);
+
+  console.log("Feedback Data:", feedbackData);
 	if (loading) {
 		return (
 			<Loading />
@@ -46,7 +47,7 @@ const FeedbackList = () => {
 	}
 	return (
 		<div>
-			<h2 className="text-2xl font-bold mb-4">Feedback List</h2>
+			{/* <h2 className="text-2xl font-bold mb-4">Feedback List</h2> */}
 			<ul className="space-y-4 max-h-150 overflow-y-auto">
 				{feedbackData?.data?.feedbacks?.map((feedback) => (
 					<li
