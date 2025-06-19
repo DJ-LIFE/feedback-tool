@@ -4,11 +4,11 @@ import React, { useEffect, useState } from "react";
 import Card from "./ui/Card";
 import Image from "next/image";
 import Button from "./ui/Button";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 
 const Products = () => {
 	const [products, setProducts] = useState<Product[]>([]);
-    const router = useRouter();
+	const router = useRouter();
 	useEffect(() => {
 		const fetchProducts = async () => {
 			try {
@@ -22,14 +22,26 @@ const Products = () => {
 
 		fetchProducts();
 	}, []);
-    const handleProductClick = (productId: string) => {
-        
-        router.push(`/products/${productId}`);
-    }
+	const handleProductClick = (productId: string) => {
+		router.push(`/products/${productId}`);
+	};
+	if (!products || products.length === 0) {
+		return (
+			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+				{Array.from({ length: 6 }).map((_, index) => (
+					<ProductCardSkeleton key={index} />
+				))}
+			</div>
+		);
+	}
 	return (
 		<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
 			{products?.map((product) => (
-				<ProductCard key={product.id} product={product} onClick={() => handleProductClick(product.id)} />
+				<ProductCard
+					key={product.id}
+					product={product}
+					onClick={() => handleProductClick(product.id)}
+				/>
 			))}
 		</div>
 	);
@@ -45,7 +57,13 @@ interface Product {
 	price: number;
 	image: string;
 }
-const ProductCard = ({ product,onClick }: { product: Product , onClick: () => void }) => {
+const ProductCard = ({
+	product,
+	onClick,
+}: {
+	product: Product;
+	onClick: () => void;
+}) => {
 	return (
 		<Card>
 			<div className="flex flex-col justify-center pb-10 space-y-1 cursor-pointer">
@@ -56,12 +74,27 @@ const ProductCard = ({ product,onClick }: { product: Product , onClick: () => vo
 					width={350}
 					className="mb-2 object-cover aspect-auto h-75 w-full rounded-md"
 				/>
-				<h3 className="text-xl font-semibold text-neutral-800">{product.name}</h3>
+				<h3 className="text-xl font-semibold text-neutral-800">
+					{product.name}
+				</h3>
 				<p className="text-base text-gray-600">{product.description}</p>
 				<p className="text-md font-bold">${product.price}</p>
 				<div onClick={onClick}>
 					<Button>Give FeedBack</Button>
 				</div>
+			</div>
+		</Card>
+	);
+};
+
+const ProductCardSkeleton = () => {
+	return (
+		<Card>
+			<div className="flex flex-col justify-center pb-10 space-y-1">
+				<div className="bg-gray-200 h-40 w-full rounded-md mb-2 animate-pulse" />
+				<div className="bg-gray-200 h-6 w-3/4 rounded-md mb-2 animate-pulse" />
+				<div className="bg-gray-200 h-4 w-1/2 rounded-md mb-2 animate-pulse" />
+				<div className="bg-gray-200 h-6 w-1/4 rounded-md mb-2 animate-pulse" />
 			</div>
 		</Card>
 	);
