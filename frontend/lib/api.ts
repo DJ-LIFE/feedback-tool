@@ -1,7 +1,5 @@
 import { AuthResponse } from "@/types";
 import axios from "axios";
-import { get } from "http";
-import { register } from "module";
 
 const API_BASE_URL =
 	process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8081/api";
@@ -50,7 +48,7 @@ export const dashBoardAPI = {
 	},
 	getFeedbacks: async (filters = {}) => {
 		try {
-			const res = await api.get("/feedbacks", { params: filters });
+			const res = await api.get("/admin-panel/feedbacks", { params: filters });
 			return res.data;
 		} catch (error) {
 			console.error("Error fetching feedbacks:", error);

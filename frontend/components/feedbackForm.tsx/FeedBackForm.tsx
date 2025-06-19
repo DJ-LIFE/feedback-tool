@@ -8,10 +8,12 @@ import { feedbackAPI } from "@/lib/api";
 import StarRating from "./StarRating";
 import { useState } from "react";
 import { useFeedbackStore } from "@/store/store";
+import { useRouter } from "next/navigation";
 
 const FeedbackForm = () => {
 	const [status, setStatus] = useState("");
 	const [loading, setLoading] = useState(false);
+	const router = useRouter();
 	const feedbackSchema = z.object({
 		name: z.string().min(2, "Name must be at least 2 characters"),
 		email: z.string().email("Invalid email address"),
@@ -46,6 +48,9 @@ const FeedbackForm = () => {
 			const response = await feedbackAPI.submitFeedback(payload);
 			if (response.success) {
 				setStatus("Thank You! Your feedback has been submitted.");
+				setTimeout(() => {
+					router.push("/");
+				}, 1000);
 			} else {
 				console.error(
 					"Feedback submission failed:",
@@ -71,9 +76,7 @@ const FeedbackForm = () => {
 	if (status) {
 		return (
 			<div className="flex items-center justify-center h-full">
-				<div>
-
-				</div>
+				<div></div>
 				<div className="text-lg font-semibold text-green-600">
 					{status}
 				</div>

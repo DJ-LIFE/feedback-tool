@@ -1,6 +1,6 @@
 "use client";
 import { useAuthStore } from "@/store/store";
-import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React from "react";
 
@@ -15,11 +15,19 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
 	return (
 		<div className="h-screen bg-gradient-to-br from-blue-50 to-purple-50">
 			<header className="bg-black shadow">
-				<div className="container mx-auto py-4 flex justify-between items-center">
+				<div className="container mx-auto py-2 flex justify-between items-center">
 					<a href="/">
-						<h1 className="text-2xl text-white font-bold">
-							Feedback App
-						</h1>
+						<span className="flex items-center space-x-2">
+							<Image
+								src="/logo.svg"
+								alt="Logo"
+								width={48}
+								height={48}
+							/>
+							<h1 className="text-2xl text-white font-bold">
+								Feedback
+							</h1>
+						</span>
 					</a>
 
 					<div className="flex space-x-4">
@@ -43,9 +51,7 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
 							<>
 								<button
 									className="text-xl text-white font-semibold cursor-pointer"
-									onClick={() =>
-										router.push("/")
-									}
+									onClick={() => router.push("/")}
 								>
 									Products
 								</button>
